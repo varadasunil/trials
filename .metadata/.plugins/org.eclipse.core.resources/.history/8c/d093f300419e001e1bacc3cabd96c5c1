@@ -1,0 +1,5 @@
+package com.microservice.product.repo;
+
+public class ProductRepo {
+
+}

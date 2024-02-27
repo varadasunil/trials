@@ -1,0 +1,36 @@
+packa+-ge com.microservice.order.service;
+
+import java.util.List;
+import java.util.UUID;
+
+import com.microservice.order.dto.OrderLineItemsDto;
+import com.microservice.order.dto.OrderRequest;
+import com.microservice.order.model.Order;
+import com.microservice.order.model.OrderLineItems;
+
+public class OrderService {
+	
+	
+	public void placeOrder(OrderRequest orderRequest) {
+		
+		Order order=new Order();
+		order.setOrderNumber(UUID.randomUUID().toString());
+		List<OrderLineItems> orderLineItems=orderRequest.getOrderLineItemsDtoList()
+				.stream().map(order->mapToDto(order))
+		
+		order.setOrderLineItemsList(null);
+		
+	}
+	
+	
+	public OrderLineItems mapToDto(OrderLineItemsDto orderLineItemsDto) {
+		
+		OrderLineItems orderLineItems =new OrderLineItems();
+		orderLineItems.setPrice(orderLineItemsDto.getPrice());
+		orderLineItems.setQuantity(orderLineItemsDto.getQuantity());
+		orderLineItems.setSkuCode(orderLineItemsDto.getSkuCode());
+		return OrderLineItems;
+
+
+}
+}

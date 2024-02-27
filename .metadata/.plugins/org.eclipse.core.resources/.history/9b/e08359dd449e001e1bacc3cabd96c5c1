@@ -1,0 +1,5 @@
+package com.microservice.product.dto;
+
+public class ProductResponse {
+
+}

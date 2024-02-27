@@ -1,0 +1,30 @@
+package com.microservice.product.service;
+
+import org.springframework.stereotype.Service;
+
+import com.microservice.product.dto.ProductRequest;
+import com.microservice.product.model.Product;
+import com.microservice.product.repo.ProductRepo;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class ProductService {
+
+	private final ProductRepo productRepo;
+	public void createProduct(ProductRequest productRequest) {
+		
+		
+		Product product=Product.builder()
+				.name(productRequest.getName())
+				.description(productRequest.getDescription())
+				.price(productRequest.getPrice())
+				.build();
+		
+		
+		
+		
+		
+	}
+}
